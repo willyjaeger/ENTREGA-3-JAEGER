@@ -1,0 +1,23 @@
+{% extends "AppCoder/padre.HTML" %}
+
+{% load static %}
+
+{% block titulo1 %} Sistema Web  {% endblock %}
+{% block titulo2 %} Curso Python  {% endblock %}
+{% block titulo3 %} Desarrollado por Guillermo Jaeger {% endblock %}
+
+
+{% block contenido %} 
+ 
+    <h1>ESTE ES EL CONTENIDO DE LA PAGINA DE CURSOS</h1>
+  
+   
+    <ul>
+    {% for cliente in clientes %}
+        <li>{{cliente.id}} - {{cliente.nombre}} - {{cliente.direccion}} - {{cliente.cuit}}</li>
+    {% endfor%}
+
+    </ul>
+
+    <a href="#contenido">Ver lista de cursos</a> <!-- Agregué este enlace -->
+{% endblock %}

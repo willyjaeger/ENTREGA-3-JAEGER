@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block titulo1 %}Pre Entrega 3{% endblock %} 
+{% block titulo2 %}Guillermo Jaeger {% endblock %} 
+{% block titulo3 %} App Compras {% endblock %} 
+{% block pretitulocontenido %} {%endblock%}
+{% block titulocontenido1 %}Articulos {%endblock%}   
+{% block titulocontenido2 %} Ingrese Artículo {%endblock%} 
+{% block contenido1 %}
+    <form action="{% url 'articulos' %}" method="post">{% csrf_token %}
+        <table>
+            {{ formulario.as_table }}
+        </table>
+    <input type="submit" value="Guardar Articulo">
+    </form>
+    <h3>{{ mensaje }}</h3>
+{% endblock %} 
+{% block titulocontenido3 %} Listado de Articulos {%endblock%} 
+{% block contenido2 %} 
+    {% for articulo in articulos %}
+    <table>
+    <li>{{articulo.id}} - {{articulo.descripcion}} - {{articulo.marca}}</li>
+    </table>   
+    {% endfor%}     
+
+{% endblock %} 

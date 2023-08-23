@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block titulo1 %}Pre Entrega 3{% endblock %} 
+{% block titulo2 %}Guillermo Jaeger {% endblock %} 
+{% block titulo3 %} App Compras {% endblock %} 
+{% block pretitulocontenido %} {%endblock%}
+{% block titulocontenido1 %}Provedores {%endblock%}   
+{% block titulocontenido2 %} Ingrese El Provedor {%endblock%} 
+{% block contenido1 %}
+    <form action="{% url 'provedores' %}" method="post">{% csrf_token %}
+        <table>
+            {{ formulario.as_table }}
+        </table>
+
+    <input type="submit" value="Guardar provedor">
+    </form>
+    <h3>{{ mensaje }}</h3>
+{% endblock %} 
+{% block titulocontenido3 %} Listado de Provedores {%endblock%} 
+{% block contenido2 %} 
+    {% for provedor in provedores %}
+    <table>
+    <li>{{provedor.id}} - {{provedor.nombre}} - {{provedor.direccion}} - {{provedor.cuit}}</li>
+    </table>   
+    {% endfor%}     
+
+{% endblock %} 
